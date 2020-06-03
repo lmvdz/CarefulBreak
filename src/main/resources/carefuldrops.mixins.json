@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.morningsage.carefuldrops.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BlockBreakMixin",
+    "EntityDropMixin",
+    "shears.BeehiveBlockMixin",
+    "shears.MooshroomEntityMixin",
+    "shears.PumpkinBlockMixin",
+    "shears.SheepEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
