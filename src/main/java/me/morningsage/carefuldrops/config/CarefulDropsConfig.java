@@ -35,5 +35,5 @@ public class CarefulDropsConfig {
         category = "shears",
         comment = "When true, right clicking on sheep with shears places drops in the player inventory instead of spawned in the world"
     )
-    public static boolean overrideSheepDrops = true;
+    public static boolean overrideSheepDrops = false;
 }
