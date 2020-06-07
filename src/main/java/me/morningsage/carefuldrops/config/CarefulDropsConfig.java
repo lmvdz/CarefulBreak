@@ -17,7 +17,7 @@ public class CarefulDropsConfig {
         category = "shears",
         comment = "When true, right clicking on Beehives with shears places drops in the player inventory instead of spawned in the world"
     )
-    public static boolean overrideBeehiveDrops = false;
+    public static boolean overrideBeehiveDrops = true;
 
     @Config(
         category = "shears",
@@ -29,7 +29,7 @@ public class CarefulDropsConfig {
         category = "shears",
         comment = "When true, right clicking on pumpkins with shears places drops in the player inventory instead of spawned in the world"
     )
-    public static boolean overridePumpkinDrops = false;
+    public static boolean overridePumpkinDrops = true;
 
     @Config(
         category = "shears",
