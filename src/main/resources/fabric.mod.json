@@ -6,7 +6,7 @@
   "name": "Careful Drops",
   "description": "Places items in your inventory if possible instead of in the world",
   "authors": [
-    "MorningSage"
+    "yankees88888g"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "me.morningsage.carefuldrops.CarefulDrops"
+      "me.morningsage.carefuldrops.CarefulBlocks"
     ]
   },
   "mixins": [
@@ -34,4 +34,5 @@
   "suggests": {
     "flamingo": "*"
   }
+}
 }
