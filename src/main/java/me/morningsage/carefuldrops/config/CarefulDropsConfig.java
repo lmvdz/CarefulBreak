@@ -5,7 +5,7 @@ public class CarefulDropsConfig {
         category = "blocks",
         comment = "When true, drops from breaking/mining blocks will be placed in the player inventory instead of spawned in the world"
     )
-    public static boolean overrideBlockDrops = false;
+    public static boolean overrideBlockDrops = true;
 
     @Config(
         category = "entities",
