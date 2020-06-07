@@ -33,7 +33,8 @@ public class BlockBreakMixin {
         List<ItemStack> drops = getDroppedStacks(state, world, pos, blockEntity, entity, stack);
 
         // Only place in the inventory if the entity is a player and block overrides are enabled
-        if (CarefulDropsConfig.overrideBlockDrops && (entity instanceof ServerPlayerEntity)) {
+        if (entity instanceof PlayerEntity && entity.isSneaking())
+        {
             // Cast as a player for easy access.  We could continually
             // cast below, but this is better
             ServerPlayerEntity player = (ServerPlayerEntity) entity;
