@@ -37,8 +37,8 @@ public class BlockBreakMixin {
         List<ItemStack> drops = getDroppedStacks(state, world, pos, blockEntity, entity, stack);
 
         // Only place in the inventory if the entity is a player and block overrides are enabled
-        if (entity instanceof PlayerEntity && entity.isSneaking())
-        {
+        if(CarefulDropsConfig.isOverrideKeyBind && CarefulDropsConfig.overrideBLockDrops) {
+            if (entity instanceof PlayerEntity && entity.isSneaking()) {
 
 
                 //            // Cast as a player for easy access.  We could continually
@@ -54,14 +54,36 @@ public class BlockBreakMixin {
                         // Getting here means adding was successful
                         // and we can remove the item from the drops
                         drops.remove(itemStack);
+                        }
+                    });
+                }
+
+            // Whatever is left in the list was skipped for some reason
+            // or another.  Returning will allow Minecraft to process
+            // like normal
+
+            return drops;
+            }else{
+            if(CarefulDropsConfig.overrideBLockDrops){
+            ServerPlayerEntity player = (ServerPlayerEntity) entity;
+
+            // This loops through the items and runs code on each item
+            // Note that because we are modifying the list while looping,
+            // we make a copy of it here.
+            ImmutableList.copyOf(drops).forEach((itemStack) -> {
+                // Attempt to add to the player's inventory
+                if (player.inventory.insertStack(itemStack)) {
+                    // Getting here means adding was successful
+                    // and we can remove the item from the drops
+                    drops.remove(itemStack);
+
                     }
                 });
             }
 
-        // Whatever is left in the list was skipped for some reason
-        // or another.  Returning will allow Minecraft to process
-        // like normal
+        }
         return drops;
     }
 
 }
+
