@@ -2,6 +2,11 @@ package me.morningsage.carefuldrops.config;
 
 public class CarefulDropsConfig {
     @Config(
+            category = "blocks",
+            comment = "only work when pressing shift"
+    )
+    public static boolean isOverrideKeyBind = true;
+    @Config(
         category = "blocks",
         comment = "When true, drops from breaking/mining blocks will be placed in the player inventory instead of spawned in the world"
     )
