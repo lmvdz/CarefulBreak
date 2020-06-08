@@ -28,7 +28,7 @@ import static net.minecraft.server.command.CommandManager.argument;
 
 public class CarefulDropsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(literal("carefuldrops")
+        dispatcher.register(literal("carefulBreak")
             .requires(source -> source.hasPermissionLevel(2))
             .then(argument("setting", ConfigFieldArgumentType.configField()).suggests(ConfigFieldArgumentType.suggestedStrings())
                 .then(argument("value", BoolArgumentType.bool())
