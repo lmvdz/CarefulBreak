@@ -14,7 +14,7 @@ import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-import me.morningsage.carefuldrops.CarefulDrops;
+import me.morningsage.carefuldrops.CarefulBlocks;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.LiteralText;
 import java.lang.reflect.Field;
@@ -38,7 +38,7 @@ public class CarefulDropsCommand {
                             boolean value = BoolArgumentType.getBool(ctx, "value");
 
                             setting.set(null, value);
-                            CarefulDrops.CONFIGHANDLER.saveConfigs();
+                            CarefulBlocks.CONFIGHANDLER.saveConfigs();
 
                             ctx.getSource().sendFeedback(new LiteralText("Setting changed successfully"), false);
 
@@ -63,7 +63,7 @@ public class CarefulDropsCommand {
 
         public static SuggestionProvider<ServerCommandSource> suggestedStrings() {
             HashSet<String> values = new HashSet<>();
-            CarefulDrops.CONFIGHANDLER.getConfigFields().forEach((field, config) -> values.add(field.getName()));
+            CarefulBlocks.CONFIGHANDLER.getConfigFields().forEach((field, config) -> values.add(field.getName()));
 
             return (ctx, builder) -> ConfigFieldArgumentType.getSuggestions(builder, ImmutableList.copyOf(values));
         }
@@ -97,7 +97,7 @@ public class CarefulDropsCommand {
 
             String string = reader.getString().substring(i, reader.getCursor());
 
-            for (Field field : CarefulDrops.CONFIGHANDLER.getConfigFields().keySet()) {
+            for (Field field : CarefulBlocks.CONFIGHANDLER.getConfigFields().keySet()) {
                 if (field.getName().toLowerCase().equals(string.toLowerCase())) {
                     return field;
                 }

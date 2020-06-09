@@ -37,7 +37,7 @@ public class BlockBreakMixin {
         List<ItemStack> drops = getDroppedStacks(state, world, pos, blockEntity, entity, stack);
 
         // Only place in the inventory if the entity is a player and block overrides are enabled
-        if(CarefulDropsConfig.isOverrideKeyBind && CarefulDropsConfig.overrideBLockDrops) {
+        if(CarefulDropsConfig.isOverrideKeyBind && CarefulDropsConfig.overrideBlockDrops) {
             if (entity instanceof PlayerEntity && entity.isSneaking()) {
 
 
@@ -64,7 +64,7 @@ public class BlockBreakMixin {
 
             return drops;
             }else{
-            if(CarefulDropsConfig.overrideBLockDrops){
+            if(CarefulDropsConfig.overrideBlockDrops){
             ServerPlayerEntity player = (ServerPlayerEntity) entity;
 
             // This loops through the items and runs code on each item
